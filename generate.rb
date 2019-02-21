@@ -7,14 +7,14 @@ TRANSLATION_ID = 3 # 2 - IV wydanie, 3 - V wydanie
 
 books = db.execute "SELECT id, number, shortTitle FROM book WHERE translation_id = #{TRANSLATION_ID} ORDER BY number ASC;"
 
-File.open("ksiegi.biblia", "a") do |f|
+File.open("BT_wyd#{TRANSLATION_ID + 2}_ksiegi.biblia", "a") do |f|
   books.each do |book|
     _id, number, shortTitle = book
     f.puts "#{number} #{shortTitle}"
   end
 end
 
-File.open("bt5.biblia", "a") do |f|
+File.open("BT_wyd#{TRANSLATION_ID + 2}_tekst.biblia", "a") do |f|
   books.each do |book|
     book_id, book_number, shortTitle = book
 
